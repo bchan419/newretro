@@ -1,0 +1,7 @@
+$("#<%= dom_id(@item) %>").fadeTo('fast', 0.1, function() { 
+  $(this).slideUp(function() {
+    $(this).remove(); 
+  });
+});
+
+$("#stat_<%= dom_id(@item.category) %>").html("<%= j(render 'retros/stat_info', :category => @item.category, :item_count => @item.retro.items.for_category(@item.category).count) %>");
