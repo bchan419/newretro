@@ -1,0 +1,9 @@
+<li class="note" id="<%= dom_id(item)%>">
+  <%= item.note %>
+  <%= link_to item_url(item), method: 'delete', remote: true, class: 'trash_icon' do %>
+    <i class="icon-trash"></i>
+    <% end %>
+</li>
+      
+    
+  

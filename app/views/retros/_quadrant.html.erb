@@ -1,0 +1,19 @@
+<div class="notes">
+  <h1>
+    <%= category.name.upcase %>
+    <%= render 'stat_info', :category => category, :item_count => @retro.items.for_category(category).count %>
+  </h1>
+
+  <%= form_for @retro.items.for_category(category).new, remote: true do |f| %>
+    <%= f.text_field :note, :id => "note_for_#{category.name.downcase}" %>
+    <%= f.hidden_field :category_id %>
+    <%= f.hidden_field :retro_id %>
+  <% end %>
+    
+  <ul class="unstyled" id="<%= dom_id(category) %>">
+    <% @retro.items.for_category(category).each do |item|  %>
+      <%= render 'items/item', :item => item  %>
+    <% end %>
+  </ul>
+</div>
+      

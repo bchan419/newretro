@@ -1,0 +1,5 @@
+<% labels = { :aha => :success, :fuzzy => :important} %>
+
+<span class="statcount label label-<%= labels[category.name.downcase.to_sym]%>"  id="stat_<%= dom_id(category) %>">
+  <%= item_count %>
+</span>

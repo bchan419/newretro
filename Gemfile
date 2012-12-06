@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
-gem 'haml'
+# gem 'haml'
 
 group :production do
   gem 'pg'
@@ -11,7 +11,7 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'haml-rails'
+  # gem 'haml-rails'
   gem 'quiet_assets'
 end
 

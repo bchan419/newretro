@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>Retrospective No. #<%= @retro.id %></h1>
+</div>
+<div class="row">
+  <div class="span12">
+    <%= form_for @retro, remote: true, html: { class: 'well form-inline' } do |f| %>
+      <%= f.label :captured_on %>
+      <%= f.text_field :captured_on, :class => 'input-small' %>
+
+      <%= f.submit "Save", :class => 'btn-info btn'%>
+
+      <p class="pull-right">
+        <%= link_to "Delete This Retrospective", @retro, method: 'delete', confirm: 'Are you sure?  There is no going back!', class: 'btn btn-danger' %>
+        <%= link_to "I'm Done", retros_url, class: 'btn btn-success' %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12" id="page_notice">
+</div>
+    
+<div id="retrobox">
+
+  <div class="row top_side">
+    <div class="span6 left_side">
+      <%= render 'quadrant', :category => Category.aha %>
+    </div>
+    <div class="span6 right_side">
+      <%= render 'quadrant', :category => Category.fuzzy %>
+    </div>
+  </div>
+  
+</div>

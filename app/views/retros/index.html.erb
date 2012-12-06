@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>All Retrospectives</h1>
+</div>
+
+<div class="row">
+  <div class="span6">
+    <p>
+      <%= link_to "Capture a New Retro", retros_url, method: 'post', class: 'btn btn-success' %>
+    </p>
+  
+    <table class="table table-striped">
+      <thead>
+        <th>Capture Date</th>
+        <th>Stats</th>
+      </thead>
+      <tbody>
+        <% Retro.order('captured_on desc').limit(100).each do |retro| %>
+          <tr>
+            <% stats = retro.stats %>
+            <td>
+              <%= link_to retro_url(retro) do %>
+                View <%= retro.captured_on.to_formatted_s(:long) %>
+              <% end %>
+            </td>
+            <td>
+              <span class="label label-success stat"><%= stats.first %></span>
+              <span class="label label-important stat"><%= stats.second %></span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+  
